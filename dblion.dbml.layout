@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 11.625" name="dblion">
+  <DataContextMoniker Name="/dblionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="05cd8793-f003-4f05-967a-74c611bad775" absoluteBounds="9.875, 7.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dblionDataContext/ADMINISTRACION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4413f03f-ba6b-434d-8e5d-778204f53955" absoluteBounds="9.89, 8.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ca4e57a-f851-4ba5-b460-3fb7b1e0c838" absoluteBounds="7.125, 4.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/dblionDataContext/PAGOS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4fb85329-89f6-4f81-bc3b-ca340456e5a3" absoluteBounds="7.1400000000000006, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe4bfaa4-b5b1-4a46-aa94-284b440cf6f0" absoluteBounds="5.125, 2.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/dblionDataContext/ASISTENCIA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57e24479-1c60-4385-b825-379eaa3ea76b" absoluteBounds="5.1400000000000006, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8583e08-40eb-4648-83db-fafdef4f147c" absoluteBounds="3.75, 5.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/dblionDataContext/CLIENTES" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6bc35f8-89e1-4090-87ba-2bb74b809be0" absoluteBounds="3.765, 5.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9574d2ed-ec2c-4be3-9649-5d7f9d2e844a" absoluteBounds="1.25, 5.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dblionDataContext/CONTROL_PESO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afb1382e-f4b4-4fe6-9a6e-20427ac9c8fb" absoluteBounds="1.2650000000000006, 6.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d8d143c-c937-4778-b4b5-6dce61b9d169" absoluteBounds="6.75, 9.625, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/dblionDataContext/MEMBRESIA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6059ab00-8e17-4ee1-a825-089f3ef8ff5e" absoluteBounds="6.7650000000000006, 10.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.875 : 8.31814697265625); (8.3750025 : 8.31814697265625); (8.3750025 : 7.03049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dblionDataContext/ADMINISTRACION/ADMINISTRACION_PAGOS" />
+      <nodes>
+        <classShapeMoniker Id="05cd8793-f003-4f05-967a-74c611bad775" />
+        <classShapeMoniker Id="5ca4e57a-f851-4ba5-b460-3fb7b1e0c838" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 6.14024983723958); (7.125 : 6.14024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dblionDataContext/CLIENTES/CLIENTES_PAGOS" />
+      <nodes>
+        <classShapeMoniker Id="e8583e08-40eb-4648-83db-fafdef4f147c" />
+        <classShapeMoniker Id="5ca4e57a-f851-4ba5-b460-3fb7b1e0c838" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.4375 : 5.25); (5.4375 : 4.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dblionDataContext/CLIENTES/CLIENTES_ASISTENCIA" />
+      <nodes>
+        <classShapeMoniker Id="e8583e08-40eb-4648-83db-fafdef4f147c" />
+        <classShapeMoniker Id="fe4bfaa4-b5b1-4a46-aa94-284b440cf6f0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 6.66429768880208); (3.25 : 6.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dblionDataContext/CLIENTES/CLIENTES_CONTROL_PESO" />
+      <nodes>
+        <classShapeMoniker Id="e8583e08-40eb-4648-83db-fafdef4f147c" />
+        <classShapeMoniker Id="9574d2ed-ec2c-4be3-9649-5d7f9d2e844a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5625 : 9.625); (7.5625 : 7.03049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dblionDataContext/MEMBRESIA/MEMBRESIA_PAGOS" />
+      <nodes>
+        <classShapeMoniker Id="5d8d143c-c937-4778-b4b5-6dce61b9d169" />
+        <classShapeMoniker Id="5ca4e57a-f851-4ba5-b460-3fb7b1e0c838" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

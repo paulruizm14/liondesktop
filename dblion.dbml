@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="liongym" Class="dblionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=liongym;Persist Security Info=True;User ID=sa;Encrypt=False" SettingsObjectName="LionApp.Properties.Settings" SettingsPropertyName="liongymConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ADMINISTRACION" Member="ADMINISTRACION">
+    <Type Name="ADMINISTRACION">
+      <Column Name="ID_ADMIN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE_ADMIN" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CLAVE_ADMIN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="ADMINISTRACION_PAGOS" Member="PAGOS" ThisKey="ID_ADMIN" OtherKey="ID_ADMIN" Type="PAGOS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PAGOS" Member="PAGOS">
+    <Type Name="PAGOS">
+      <Column Name="ID_PAGO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_ADMIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CEDULA_CLIENTE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_MEM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VALOR_PAGO" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="FECHA_PAGO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TIPO_PAGO" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="ADMINISTRACION_PAGOS" Member="ADMINISTRACION" ThisKey="ID_ADMIN" OtherKey="ID_ADMIN" Type="ADMINISTRACION" IsForeignKey="true" />
+      <Association Name="CLIENTES_PAGOS" Member="CLIENTES" ThisKey="CEDULA_CLIENTE" OtherKey="CEDULA_CLIENTE" Type="CLIENTES" IsForeignKey="true" />
+      <Association Name="MEMBRESIA_PAGOS" Member="MEMBRESIA" ThisKey="ID_MEM" OtherKey="ID_MEM" Type="MEMBRESIA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASISTENCIA" Member="ASISTENCIA">
+    <Type Name="ASISTENCIA">
+      <Column Name="ID_ASIS" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CEDULA_CLIENTE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FECHA_ASIS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CLIENTES_ASISTENCIA" Member="CLIENTES" ThisKey="CEDULA_CLIENTE" OtherKey="CEDULA_CLIENTE" Type="CLIENTES" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CLIENTES" Member="CLIENTES">
+    <Type Name="CLIENTES">
+      <Column Name="ID_CLIENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOMBRE_CLIENTE" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="APELLIDO_CLIENTE" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CORREO_CLIENTE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FOTO_CLIENTE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHA_NACIMIENTO_CLIENTE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TELEFONO_CLIENTE" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="CEDULA_CLIENTE" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CLIENTES_PAGOS" Member="PAGOS" ThisKey="CEDULA_CLIENTE" OtherKey="CEDULA_CLIENTE" Type="PAGOS" />
+      <Association Name="CLIENTES_ASISTENCIA" Member="ASISTENCIA" ThisKey="CEDULA_CLIENTE" OtherKey="CEDULA_CLIENTE" Type="ASISTENCIA" />
+      <Association Name="CLIENTES_CONTROL_PESO" Member="CONTROL_PESO" ThisKey="CEDULA_CLIENTE" OtherKey="CEDULA_CLIENTE" Type="CONTROL_PESO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CONTROL_PESO" Member="CONTROL_PESO">
+    <Type Name="CONTROL_PESO">
+      <Column Name="ID_PESO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CEDULA_CLIENTE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FECHA_PESO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VALOR_PESO" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Association Name="CLIENTES_CONTROL_PESO" Member="CLIENTES" ThisKey="CEDULA_CLIENTE" OtherKey="CEDULA_CLIENTE" Type="CLIENTES" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MEMBRESIA" Member="MEMBRESIA">
+    <Type Name="MEMBRESIA">
+      <Column Name="ID_MEM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE_MEM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DESCRIP_MEM" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="VALOR_MEM" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="DIAS_MEM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MEMBRESIA_PAGOS" Member="PAGOS" ThisKey="ID_MEM" OtherKey="ID_MEM" Type="PAGOS" />
+    </Type>
+  </Table>
+</Database>
